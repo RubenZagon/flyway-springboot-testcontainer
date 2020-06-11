@@ -22,8 +22,7 @@ class FlywayTests {
 				.build();
 
 		Product insertedProduct = productRepository.save(product);
-		Product selectProduct = productRepository.findById(insertedProduct.getId())
-				.orElse(null);
+		Product selectProduct = productRepository.findById(insertedProduct.getId()).get();
 
 		assertThat(product.getName(), is(selectProduct.getName()));
 
